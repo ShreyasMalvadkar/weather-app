@@ -1,0 +1,8 @@
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown {
+  max-width: 50%;
+}
