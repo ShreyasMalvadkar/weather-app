@@ -1,9 +1,18 @@
 body {
   text-align: center;
   background-image: url("https://picsum.photos/id/46/1920/1080.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  height:100%;
+  width: 100%;
+  justify-self: center;
 }
 
-.App {
+.neon {
+  color: #1434b3;
+  text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+           0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+           0 0 40px #A5F1FF;
 }
+
+
