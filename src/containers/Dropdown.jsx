@@ -1,16 +1,18 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import "./styles/Dropdown.css";
 import cityList from "../top-cities.json";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCity } from "actions/cityActions";
+import { citySelector } from "selectors/citySelector";
 
 const Dropdown = () => {
-  const [selectedCity, setSelectedCity] = useState("");
+  const dispatch = useDispatch();
+  const selectedCity = useSelector(citySelector);
 
-  const handleChange = (e) => {
-    setSelectedCity(e.target.value);
+  const handleChange = e => {
+    dispatch(changeCity(e.target.value));
   };
-
-  console.log(cityList);
 
   return (
     <div className="dropdown-container">
@@ -23,11 +25,8 @@ const Dropdown = () => {
           label="City"
           onChange={handleChange}
         >
-          {cityList.map((obj) => (
-            <MenuItem
-              key={obj.Key}
-              value={obj.Key}
-            >{`${obj.EnglishName}, ${obj.Country.EnglishName}`}</MenuItem>
+          {cityList.map(obj => (
+            <MenuItem key={obj.Key} value={obj.Key}>{`${obj.EnglishName}, ${obj.Country.EnglishName}`}</MenuItem>
           ))}
         </Select>
       </FormControl>
