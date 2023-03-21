@@ -4,7 +4,7 @@ export const weatherInfoActions = {
   failure: "WEATHER_INFO_FAILURE"
 };
 
-export const getWeather = () => {
+export const startWeatherLoader = () => {
   return {
     type: weatherInfoActions.request
   };
