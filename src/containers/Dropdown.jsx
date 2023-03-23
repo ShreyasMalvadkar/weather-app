@@ -1,10 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React from "react";
-import "./styles/Dropdown.css";
-import cityList from "../top-cities.json";
+import "containers/styles/Dropdown.css";
+import cityList from "top-cities.json";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCity } from "actions/cityActions";
 import { citySelector } from "selectors/citySelector";
+import { getWeatherData } from "services/weatherApi.service";
+import { startWeatherLoader } from "actions/weatherInfoActions";
 
 const Dropdown = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ const Dropdown = () => {
 
   const handleChange = e => {
     dispatch(changeCity(e.target.value));
+    dispatch(startWeatherLoader());
+    getWeatherData(e.target.value, dispatch);
   };
 
   return (

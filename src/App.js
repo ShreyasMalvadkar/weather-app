@@ -1,5 +1,6 @@
-import "./App.css";
-import Dropdown from "./containers/Dropdown";
+import WeatherInfoContainer from "containers/WeatherInfoContainer";
+import "App.css";
+import Dropdown from "containers/Dropdown";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <div>
         <h1 className="neon">Weather App</h1>
         <Dropdown />
+        <WeatherInfoContainer />
       </div>
     </div>
   );
